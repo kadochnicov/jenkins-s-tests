@@ -1,6 +1,13 @@
-import { test, expect, Page} from '@playwright/test';
+import { test, expect, Page, Locator} from '@playwright/test';
 
-const elements = [
+interface Elements {
+  locator: (page: Page) => Locator;
+  label?: string;
+  txt?: string;
+  link?: string;
+}
+
+const elements: Elements[] = [
   {
     locator: (page: Page) => page.locator('.app-jenkins-logo'),
     label: 'logo',
